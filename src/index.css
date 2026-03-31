@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+  --font-amsterdam: "Dancing Script", cursive;
+}
+
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>') 12 12, auto;
+}
+
+/* Custom scrollbar for the letter content */
+.letter-content::-webkit-scrollbar {
+  width: 6px;
+}
+.letter-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.letter-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 182, 193, 0.5);
+  border-radius: 10px;
+}
+
+/* Pink Flower from User Code */
+.pink-flower {
+  position: absolute;
+  perspective: 1000px;
+}
+.pink-flower__leafs {
+  position: relative;
+  animation: blooming-flower 2s backwards;
+}
+.pink-flower__leafs::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -100%);
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 20, 147, 0.5);
+  filter: blur(15px);
+}
+.pink-flower__leaf {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 32px;
+  height: 44px;
+  border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
+  background-color: #ff69b4;
+  background-image: linear-gradient(to top, #ff1493, #ffb6c1);
+  transform-origin: bottom center;
+  opacity: 0.9;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5);
+}
+.pink-flower__leaf--1 { transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg); }
+.pink-flower__leaf--2 { transform: translate(-50%, -4%) rotateX(40deg); }
+.pink-flower__leaf--3 { transform: translate(-90%, 0%) rotateY(45deg) rotateX(50deg); }
+.pink-flower__leaf--4 {
+  width: 32px;
+  height: 32px;
+  transform-origin: bottom left;
+  border-radius: 16px 40px 16px 16px;
+  transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
+  background-image: linear-gradient(to top, #ff1493, #ffb6c1);
+  z-index: 1;
+  opacity: 0.8;
+}
+.pink-flower__white-circle {
+  position: absolute;
+  left: -14px;
+  top: -12px;
+  width: 36px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.pink-flower__white-circle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border-radius: inherit;
+  background-image: repeating-linear-gradient( 135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 112.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 112.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 22.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 22.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 157.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient( 67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), linear-gradient(90deg, rgb(255, 20, 147), rgb(255, 105, 180));
+}
+@keyframes blooming-flower {
+  0% { transform: scale(0); }
+}
