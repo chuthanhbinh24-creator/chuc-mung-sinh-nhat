@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // ==========================================
 // THAY ĐỔI LINK ÂM THANH VÀ VIDEO Ở ĐÂY
 // ==========================================
-const AUDIO_URL = "https://puny-salmon-uqiyt6jjm2.edgeone.app/Shiki,%20Low%20G,%20Justatee%20-%20In%20Love%20x%20Có%20Đôi%20Điều%20(Pizuh%20Mashup)%20-%20Pizuh.mp3"; // Link nhạc nền
+const AUDIO_URL = "https://ia902904.us.archive.org/19/items/shiki-low-g-justatee-in-love-x-co-doi-dieu-pizuh-mashup-pizuh/Shiki%2C%20Low%20G%2C%20Justatee%20-%20In%20Love%20x%20C%C3%B3%20%C4%90%C3%B4i%20%C4%90i%E1%BB%81u%20%28Pizuh%20Mashup%29%20-%20Pizuh.mp3"; // Link nhạc nền
 const VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4"; // Link video
 // ==========================================
 
