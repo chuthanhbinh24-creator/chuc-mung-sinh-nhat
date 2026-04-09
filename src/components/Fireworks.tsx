@@ -24,13 +24,20 @@ export const Fireworks: React.FC = () => {
     const interval: any = setInterval(function() {
       const elapsed = Date.now() - startTime;
       
-      // Calculate opacity: starts at 1, goes down to 0.2
-      let currentOpacity = 1 - (elapsed / fadeDuration) * 0.8;
-      if (currentOpacity < 0.2) currentOpacity = 0.2;
+      // Calculate opacity: starts at 1, goes down to 0
+      let currentOpacity = 1 - (elapsed / fadeDuration);
+      
+      if (currentOpacity <= 0) {
+        setOpacity(0);
+        clearInterval(interval); // Stop firing completely when faded out
+        return;
+      }
+      
       setOpacity(currentOpacity);
 
       // Decrease particle count over time to make it less intense
-      const particleCount = Math.floor(50 * currentOpacity);
+      // OPTIMIZED: Reduced particle count to prevent lag
+      const particleCount = Math.floor(20 * currentOpacity);
       
       // Since they fall down, start a bit higher than random
       myConfetti({
@@ -43,7 +50,7 @@ export const Fireworks: React.FC = () => {
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
         colors: ['#ffb6c1', '#ffc0cb', '#ff69b4', '#ff1493', '#db7093']
       });
-    }, 250);
+    }, 800); // OPTIMIZED: Increased interval from 250ms to 800ms to reduce lag
 
     return () => {
       clearInterval(interval);
