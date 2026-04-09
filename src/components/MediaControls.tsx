@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // THAY ĐỔI LINK ÂM THANH VÀ VIDEO Ở ĐÂY
 // ==========================================
 const AUDIO_URL = "https://ia902904.us.archive.org/19/items/shiki-low-g-justatee-in-love-x-co-doi-dieu-pizuh-mashup-pizuh/Shiki%2C%20Low%20G%2C%20Justatee%20-%20In%20Love%20x%20C%C3%B3%20%C4%90%C3%B4i%20%C4%90i%E1%BB%81u%20%28Pizuh%20Mashup%29%20-%20Pizuh.mp3"; // Link nhạc nền
-const VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4"; // Link video
+const VIDEO_URL = "https://ia600504.us.archive.org/14/items/du-an-cuoi-cung/D%E1%BB%B1%20%C3%81n%20Cu%E1%BB%91i%20C%C3%B9ng.mp4"; // Link video
 // ==========================================
 
 interface MediaControlsProps {
