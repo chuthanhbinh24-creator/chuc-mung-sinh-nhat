@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, Play, X } from 'lucide-react';
+import { Volume2, VolumeX, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ==========================================
@@ -15,7 +15,6 @@ interface MediaControlsProps {
 
 export const MediaControls: React.FC<MediaControlsProps> = ({ showVideo }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const toggleAudio = () => {
@@ -30,17 +29,11 @@ export const MediaControls: React.FC<MediaControlsProps> = ({ showVideo }) => {
   };
 
   const openVideo = () => {
-    setIsVideoOpen(true);
     if (audioRef.current && isPlaying) {
       audioRef.current.pause();
+      setIsPlaying(false);
     }
-  };
-
-  const closeVideo = () => {
-    setIsVideoOpen(false);
-    if (audioRef.current && isPlaying) {
-      audioRef.current.play();
-    }
+    window.open(VIDEO_URL, '_blank');
   };
 
   // Tự động phát nhạc khi tải xong (có thể bị trình duyệt chặn nếu không có tương tác)
@@ -86,43 +79,8 @@ export const MediaControls: React.FC<MediaControlsProps> = ({ showVideo }) => {
               title="Mở Video"
             >
               <Play size={24} fill="currentColor" />
-              Xem Video Kỷ Niệm
+              Hề Hế Đây Nè
             </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Video Modal */}
-      <AnimatePresence>
-        {isVideoOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <button
-                onClick={closeVideo}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
-              >
-                <X size={24} />
-              </button>
-              <video
-                src={VIDEO_URL}
-                controls
-                autoPlay
-                playsInline
-                preload="metadata"
-                onEnded={closeVideo}
-                className="w-full h-full object-contain"
-              />
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
